@@ -1,10 +1,11 @@
-var React = require('react');
+var React = require('react'),
+	createReactClass = require('create-react-class');
 
 /**
  * Component for editing a boolean.
  * @param  {string} value The value of the boolean.
  */
-var SelectType = React.createClass({
+var SelectType = createReactClass({
 
 	defaultValue: '',
 
@@ -17,7 +18,7 @@ var SelectType = React.createClass({
 	render: function(){
 		var className = 'jsonSelect';
 
-		return React.DOM.select({
+		return  React.createElement('select', {
 			className: className,
 			id: this.props.id,
 			value: this.props.value,
@@ -39,7 +40,7 @@ var SelectType = React.createClass({
 				data = { value: opt, label: opt };
 
 			options.push(
-				React.DOM.option({value: data.value}, data.label)
+                React.createElement('option', {value: data.value}, data.label)
 			);
 		});
 

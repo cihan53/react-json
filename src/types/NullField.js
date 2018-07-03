@@ -1,5 +1,12 @@
+/*
+ * Copyright (c) 2018. CreyptTech Yazılım
+ * Author : Cihan Ozturk
+ *
+ */
+
 var React = require('react'),
-	FieldCreator = require('../FieldCreator')
+    createReactClass = require('create-react-class'),
+	FieldCreator = require('../FieldAdder')
 ;
 
 /**
@@ -8,7 +15,7 @@ var React = require('react'),
  * @param  {Mixed} original The value of the component it the original json.
  * @param {FreezerNode} parent The parent node to let the string component update its value.
  */
-var NullField = React.createClass({
+var NullField = createReactClass({
 	getInitialState: function(){
 		return {
 			editing: !this.props.value,

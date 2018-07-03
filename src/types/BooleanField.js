@@ -1,17 +1,23 @@
-var React = require('react');
+/*
+ * Copyright (c) 2018. CreyptTech Yazılım
+ * Author : Cihan Ozturk
+ *
+ */
+
+var React = require('react'),createReactClass = require('create-react-class');
 
 /**
  * Component for editing a boolean.
  * @param  {string} value The value of the boolean.
  */
-var BooleanField = React.createClass({
+var BooleanField = createReactClass({
 
 	defaultValue: false,
 
 	render: function(){
 		var className = 'jsonBoolean';
 
-		return React.DOM.input({
+		return  React.createElement('input', {
 			type: "checkbox",
 			className: className,
 			id: this.props.id,

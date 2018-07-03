@@ -1,19 +1,36 @@
+/*
+ * Copyright (c) 2018. CreyptTech Yazılım
+ * Author : Cihan Ozturk
+ *
+ */
+
 'use strict';
 
-var React = require('react'),
+// import {React} from 'react';
+// import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types'; // ES6
+
+
+var
 	deepSettings = require('./deepSettings'),
 	objectAssign = require('object-assign')
 ;
 
+
+var React = require('react');
+var createReactClass = require('create-react-class');
+
+
+
 var components = {};
 var typeCheckOrder = [];
 
-var TypeField = React.createClass({
+var TypeField = createReactClass({
 	components: {},
 	typeCheckOrder: [],
 
 	contextTypes: {
-		typeDefaults: React.PropTypes.object
+		typeDefaults: PropTypes.object
 	},
 
 	render: function() {

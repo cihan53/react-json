@@ -1,6 +1,13 @@
+/*
+ * Copyright (c) 2018. CreyptTech Yazılım
+ * Author : Cihan Ozturk
+ *
+ */
+
 'use strict';
 
 var React = require('react'),
+    createReactClass = require('create-react-class'),
 	Field = require('../Field'),
 	assign = require('object-assign'),
 	CompoundFieldMixin = require('../../mixins/CompoundFieldMixin')
@@ -11,7 +18,7 @@ var React = require('react'),
  * @param  {FreezerNode} value The value of the object.
  * @param  {Mixed} original The value of the component it the original json.
  */
-var ObjectField = React.createClass({
+var ObjectField = createReactClass({
 	mixins: [CompoundFieldMixin],
 
 	getInitialState: function(){
@@ -56,8 +63,8 @@ var ObjectField = React.createClass({
 			openHashChildren.push( this.renderAdder() );
 		}
 
-		openHash = React.DOM.div({ key: 'o', className: 'jsonChildren'}, openHashChildren);
-		return React.DOM.span({className: className}, [
+		openHash =  React.createElement('div', { key: 'o', className: 'jsonChildren'}, openHashChildren);
+		return  React.createElement('span', {className: className}, [
 			this.renderHeader(),
 			openHash
 		]);
@@ -95,7 +102,7 @@ var ObjectField = React.createClass({
 			fields.push( me.renderField( field, fixedFields ) );
 		});
 
-		return React.DOM.div({ className: 'jsonGroup jsonGroup_' + groupNumber }, fields );
+		return  React.createElement('div', { className: 'jsonGroup jsonGroup_' + groupNumber }, fields );
 	},
 
 	getDefaultHeader: function(){

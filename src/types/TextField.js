@@ -1,4 +1,11 @@
+/*
+ * Copyright (c) 2018. CreyptTech Yazılım
+ * Author : Cihan Ozturk
+ *
+ */
+
 var React = require('react'),
+    createReactClass = require('create-react-class'),
 	LeafMixin = require('../../mixins/LeafFieldMixin')
 ;
 
@@ -8,7 +15,7 @@ var React = require('react'),
  * @param  {Mixed} original The value of the component it the original json.
  * @param {FreezerNode} parent The parent node to let the string component update its value.
  */
-var TextField = React.createClass({
+var TextField = createReactClass({
 	mixins: [LeafMixin],
 	defaultValue: '',
 
@@ -20,9 +27,9 @@ var TextField = React.createClass({
 		var className = 'jsonText';
 
 		if( !this.state.editing )
-			return React.DOM.span( {onClick: this.setEditMode, className: className}, this.props.value );
+			return  React.createElement('span',  {onClick: this.setEditMode, className: className}, this.props.value );
 
-		return React.DOM.textarea({
+		return  React.createElement('textarea', {
 			value: this.state.value,
 			id: this.props.id,
 			onChange: this.updateValue,

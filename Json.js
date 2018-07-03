@@ -1,4 +1,11 @@
+/*
+ * Copyright (c) 2018. CreyptTech Yazılım
+ * Author : Cihan Ozturk
+ *
+ */
+
 var React = require('react'),
+    createReactClass = require('create-react-class'),
 	Freezer = require('freezer-js'),
 	objectAssign = require('object-assign'),
 	TypeField = require('./src/TypeField'),
@@ -12,6 +19,8 @@ var React = require('react'),
 	SelectField = require('./src/types/SelectField'),
 	deepSettings = require('./src/deepSettings')
 ;
+
+import PropTypes from 'prop-types'; // ES6
 
 // Detect flexbox support
 var flexboxClass = typeof document != 'undefined' || '',
@@ -31,7 +40,7 @@ if( flexboxClass ){
  * @prop  {Object|FreezerNode} value The JSON object, value of the form.
  * @prop  {Object} settings Customization settings
  */
-var Json = React.createClass({
+var Json = createReactClass({
 
 	getDefaultProps: function(){
 		return {
@@ -42,7 +51,7 @@ var Json = React.createClass({
 	},
 
 	childContextTypes: {
-		typeDefaults: React.PropTypes.object
+		typeDefaults: PropTypes.object
 	},
 
 	getChildContext: function(){
@@ -111,7 +120,8 @@ var Json = React.createClass({
 			className = 'jsonEditor' + flexboxClass
 		;
 
-		return React.DOM.div({ className: className }, ob);
+		return React.createElement('div', { className: className },  ob );
+		// return React.DOM.div({ className: className }, ob);
 	},
 
 	getValue: function(){
